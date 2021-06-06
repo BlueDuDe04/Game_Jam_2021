@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        
+        playerCamera = (GetComponentInChildren<Camera>()).transform;
     }
 
     // Update is called once per frame
