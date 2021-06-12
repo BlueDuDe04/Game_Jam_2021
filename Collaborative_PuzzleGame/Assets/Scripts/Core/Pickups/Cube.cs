@@ -7,13 +7,13 @@ public class Cube : MonoBehaviour, IPickup
     Rigidbody rb;
     FixedJoint fixedJoint;
     bool isHeld;
-    public Camera camera;
+    public Transform PositionHolder;
     public float distance;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        camera = InputHandler.Instance.camera;
+        
         
     }
 
@@ -22,8 +22,8 @@ public class Cube : MonoBehaviour, IPickup
     {        
         if(isHeld)
         {
-            transform.position = camera.transform.position + camera.transform.forward * distance;
-            transform.rotation = new Quaternion( 0.0f, camera.transform.rotation.y, 0.0f, camera.transform.rotation.w );
+            transform.position = PositionHolder.transform.position + PositionHolder.transform.forward * distance;
+            transform.rotation = new Quaternion( 0.0f, PositionHolder.transform.rotation.y, 0.0f, PositionHolder.transform.rotation.w );
         }
     }
 
