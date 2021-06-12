@@ -19,17 +19,19 @@ public class Keycard : MonoBehaviour, IPickup
     {
         isHeld = false;
 
-        GetComponent<Collider>().enabled = true;
+        
         rb.constraints = RigidbodyConstraints.None;
         this.transform.parent = null;
+        GetComponent<Collider>().isTrigger = false;
     }
 
     public void OnPickup()
     {
         isHeld = true;
         Debug.Log("Pick up this " + this.gameObject.name);
-        GetComponent<Collider>().enabled = false;
+        
 
+        GetComponent<Collider>().isTrigger = true;
         transform.parent = InputHandler.Instance.heldObjectPlaceHolder;
         transform.rotation = InputHandler.Instance.camera.transform.rotation;
         transform.position = transform.parent.position;
@@ -38,7 +40,15 @@ public class Keycard : MonoBehaviour, IPickup
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.tag == "Scanner")
+         if(collider.tag == "Wall")
+        {
+            Debug.Log("You hit a wall bitch");
+            GetComponent<Collider>().isTrigger = false;
+            OnDrop();
+        }
+
+
+        else if (collider.tag == "Scanner")
         {
             Scanner scanner = collider.GetComponent<Scanner>();
             if(scannerID == scanner.scannerCheckID)
@@ -46,12 +56,18 @@ public class Keycard : MonoBehaviour, IPickup
                 scanner.OpenDoors();
             }
         }
+    }
 
-        else if(collider.tag == "Wall")
+    private void OnTriggerExit(Collider collider) 
+    {
+        if (collider.tag == "Scanner")
         {
-            Debug.Log("You hit a wall bitch");
-            GetComponent<Collider>().isTrigger = false;
-            OnDrop();
+            Scanner scanner = collider.GetComponent<Scanner>();
+            if(scannerID == scanner.scannerCheckID)
+            {
+                scanner.CloseDoors();
+            }
         }
     }
 }
+

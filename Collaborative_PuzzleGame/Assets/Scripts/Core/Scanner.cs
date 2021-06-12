@@ -14,13 +14,18 @@ public class Scanner : MonoBehaviour
         Debug.Log("Opening scanner doors " + gameObject.name);
 
         foreach (Door door in linkedDoors)
-        {
-            if (door.isOpened)
-                door.CloseDoor();
-                
-            else
-                door.OpenDoor();
-        }
+            door.OpenDoor();
     }
+
+    public void CloseDoors()
+    {
+        Debug.Log("Closing scanner doors " + gameObject.name);
+
+        foreach (Door door in linkedDoors)
+            door.CloseDoor();       
+    }
+
+
+
     
 }

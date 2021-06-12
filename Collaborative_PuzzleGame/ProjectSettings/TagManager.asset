@@ -8,6 +8,7 @@ TagManager:
   - Button
   - Interactable
   - Scanner
+  - Wall
   layers:
   - Default
   - TransparentFX
