@@ -82,7 +82,7 @@ public class InputHandler : MonoBehaviour
     {
         var distanceFromObject = player.position - _hit.transform.position;
 
-        if (distanceFromObject.magnitude <= 9.0f)
+        if (distanceFromObject.magnitude <= 18.0f)
             return true;
          
         return false;
