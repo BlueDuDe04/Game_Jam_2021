@@ -51,7 +51,7 @@ public class InputHandler : MonoBehaviour
                 
         else if (hoveredItem.TryGetComponent<IInteractable>(out IInteractable interactable))
             {
-                hoveredItem.GetComponent<IInteractable>().InteractWithObject();
+                interactable.InteractWithObject();
                 return;
             }
 
