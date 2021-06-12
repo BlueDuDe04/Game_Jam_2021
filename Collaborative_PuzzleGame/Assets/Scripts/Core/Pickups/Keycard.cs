@@ -46,5 +46,12 @@ public class Keycard : MonoBehaviour, IPickup
                 scanner.OpenDoors();
             }
         }
+
+        else if(collider.tag == "Wall")
+        {
+            Debug.Log("You hit a wall bitch");
+            GetComponent<Collider>().isTrigger = false;
+            OnDrop();
+        }
     }
 }

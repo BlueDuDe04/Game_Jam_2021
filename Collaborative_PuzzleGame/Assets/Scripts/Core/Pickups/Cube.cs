@@ -21,7 +21,7 @@ public class Cube : MonoBehaviour, IPickup
     {
         isHeld = false;
 
-        GetComponent<Collider>().enabled = true;
+        //GetComponent<Collider>().enabled = true;
         rb.constraints = RigidbodyConstraints.None;
         this.transform.parent = null;
     }
@@ -30,7 +30,8 @@ public class Cube : MonoBehaviour, IPickup
     {
         isHeld = true;
         Debug.Log("Pick up this " + this.gameObject.name);
-        GetComponent<Collider>().enabled = false;
+        GetComponent<Collider>().isTrigger = true;
+        //GetComponent<Collider>().enabled = false;
 
     
         transform.parent = InputHandler.Instance.heldObjectPlaceHolder;
@@ -40,6 +41,16 @@ public class Cube : MonoBehaviour, IPickup
 
         rb.constraints = RigidbodyConstraints.FreezeAll;
         rb.IsSleeping();
+        
+    }
+
+    private void OnTriggerEnter(Collider collider) {
+        if (collider.tag == "Wall")
+        {
+            Debug.Log("You hit a wall bitch");
+            GetComponent<Collider>().isTrigger = false;
+            OnDrop();
+        }
         
     }
 
