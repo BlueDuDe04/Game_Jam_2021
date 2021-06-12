@@ -6,9 +6,6 @@ TagManager:
   tags:
   - PickUps
   - Button
-  - Interactable
-  - Scanner
-  - Wall
   layers:
   - Default
   - TransparentFX
