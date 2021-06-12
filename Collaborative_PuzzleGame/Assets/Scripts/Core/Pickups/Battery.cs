@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cube : MonoBehaviour, IPickup
+public class Battery : MonoBehaviour, IPickup
 {
     Rigidbody rb;
     bool isHeld;
-
+    public int batteryID;
 
     void Start()
     {
@@ -28,6 +28,7 @@ public class Cube : MonoBehaviour, IPickup
 
     public void OnPickup()
     {
+        Debug.Log("On Pickup");
         isHeld = true;
         Debug.Log("Pick up this " + this.gameObject.name);
         GetComponent<Collider>().isTrigger = true;
@@ -53,5 +54,6 @@ public class Cube : MonoBehaviour, IPickup
         }
         
     }
+
 
 }
