@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GrabScript : MonoBehaviour
+public class GrabScript_Previous : MonoBehaviour
 {
     Transform gameCube;
     bool isGrabbing = false;

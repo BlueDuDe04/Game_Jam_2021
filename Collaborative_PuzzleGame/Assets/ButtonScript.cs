@@ -7,6 +7,8 @@ public class ButtonScript : MonoBehaviour
     public DoorScript doorScript;
     Light buttonLight;
 
+    public bool activateDoor = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +18,10 @@ public class ButtonScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(activateDoor == true)
+        {
+            doorScript.isActivated = true;
+        }
     }
 
     private void OnTriggerStay(Collider other)

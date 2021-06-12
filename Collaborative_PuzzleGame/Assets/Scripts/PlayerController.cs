@@ -29,6 +29,12 @@ public class PlayerController : MonoBehaviour
         HandGrab = transform.Find("HandGrab");
 
         initialScale = transform.localScale;
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        Time.fixedDeltaTime = 0.01f;
+
     }
 
     // Update is called once per frame
