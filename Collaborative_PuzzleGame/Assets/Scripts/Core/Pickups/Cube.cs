@@ -12,19 +12,18 @@ public class Cube : MonoBehaviour, IPickup
     {
         rb = GetComponent<Rigidbody>();
 
-
-
     }
 
 
     public void OnDrop()
     {
+        GetComponent<Collider>().isTrigger = false;
         isHeld = false;
 
         //GetComponent<Collider>().enabled = true;
         rb.constraints = RigidbodyConstraints.None;
         this.transform.parent = null;
-        GetComponent<Collider>().isTrigger = false;
+        
     }
 
     public void OnPickup()
@@ -41,7 +40,6 @@ public class Cube : MonoBehaviour, IPickup
 
 
         rb.constraints = RigidbodyConstraints.FreezeAll;
-        rb.IsSleeping();
         
     }
 
