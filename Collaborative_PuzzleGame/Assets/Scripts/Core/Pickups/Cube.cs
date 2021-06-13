@@ -6,12 +6,27 @@ public class Cube : MonoBehaviour, IPickup
 {
     Rigidbody rb;
     bool isHeld;
+    public Transform mirroredObject; 
+    public float offsetZ;
+    public float offsetX;
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
 
+    }
+    
+    private void FixedUpdate() 
+    {
+        
+        if (isHeld 
+        && mirroredObject != null)
+        {
+            
+            mirroredObject.transform.position = new Vector3((mirroredObject.transform.position.x + offsetX), mirroredObject.transform.position.y, mirroredObject.transform.position.z + offsetZ);
+          
+        }
     }
 
 
@@ -41,6 +56,11 @@ public class Cube : MonoBehaviour, IPickup
 
         rb.constraints = RigidbodyConstraints.FreezeAll;
         rb.IsSleeping();
+
+        if (mirroredObject != null)
+        {
+            mirroredObject.transform.parent = this.transform.parent;
+        }
         
     }
 
