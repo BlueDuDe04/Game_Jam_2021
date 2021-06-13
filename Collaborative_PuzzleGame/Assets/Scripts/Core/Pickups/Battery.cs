@@ -2,31 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cube : MonoBehaviour, IPickup
+public class Battery : MonoBehaviour, IPickup
 {
     Rigidbody rb;
     bool isHeld;
-    public Transform mirroredObject; 
-    public float offsetZ;
-    public float offsetX;
-
+    public int batteryID;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
 
-    }
-    
-    private void FixedUpdate() 
-    {
-        
-        if (isHeld 
-        && mirroredObject != null)
-        {
-            
-            mirroredObject.transform.position = new Vector3((mirroredObject.transform.position.x + offsetX), mirroredObject.transform.position.y, mirroredObject.transform.position.z + offsetZ);
-          
-        }
     }
 
 
@@ -43,6 +28,7 @@ public class Cube : MonoBehaviour, IPickup
 
     public void OnPickup()
     {
+        Debug.Log("On Pickup");
         isHeld = true;
         Debug.Log("Pick up this " + this.gameObject.name);
         GetComponent<Collider>().isTrigger = true;
@@ -56,11 +42,6 @@ public class Cube : MonoBehaviour, IPickup
 
         rb.constraints = RigidbodyConstraints.FreezeAll;
         rb.IsSleeping();
-
-        if (mirroredObject != null)
-        {
-            mirroredObject.transform.parent = this.transform.parent;
-        }
         
     }
 
@@ -73,5 +54,6 @@ public class Cube : MonoBehaviour, IPickup
         }
         
     }
+
 
 }
