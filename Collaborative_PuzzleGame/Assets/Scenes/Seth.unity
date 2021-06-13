@@ -575,8 +575,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 3.95, z: 0.06}
-  m_Center: {x: 0.54, y: 2.28, z: 1.14}
+  m_Size: {x: 3.16, y: 5.13, z: 0.2}
+  m_Center: {x: 0.01, y: 1.63, z: 1.13}
 --- !u!114 &226978479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,6 +590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOpened: 0
+  isLocked: 0
 --- !u!1 &266040392 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 280692466599217327, guid: 1a82deee7e7c284418131356b1f771ec, type: 3}
@@ -699,6 +700,25 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 766908174, guid: 1a82deee7e7c284418131356b1f771ec, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1a82deee7e7c284418131356b1f771ec, type: 3}
+--- !u!1 &322367315 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8852654862681388211, guid: 6969824502a1bb74e9633a8fdfdf5ca4, type: 3}
+  m_PrefabInstance: {fileID: 226978474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &322367319
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322367315}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 9107443359705918477, guid: 6969824502a1bb74e9633a8fdfdf5ca4, type: 3}
 --- !u!1 &345503489
 GameObject:
   m_ObjectHideFlags: 0
@@ -3051,6 +3071,7 @@ MonoBehaviour:
   heldObjectPlaceHolder: {fileID: 135988430}
   isHoldingItem: 0
   hoveredItem: {fileID: 0}
+  reticle: {fileID: 1396009619}
 --- !u!1 &1242462026
 GameObject:
   m_ObjectHideFlags: 0
@@ -3225,11 +3246,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1540327632197557311, guid: 67216cd733399a24cb41b11bd146829f, type: 3}
       propertyPath: m_Interpolate
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1540327632197557311, guid: 67216cd733399a24cb41b11bd146829f, type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67216cd733399a24cb41b11bd146829f, type: 3}
@@ -3245,7 +3266,7 @@ GameObject:
   - component: {fileID: 1396009622}
   - component: {fileID: 1396009621}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Reticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

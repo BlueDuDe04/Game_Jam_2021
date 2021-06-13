@@ -6,6 +6,7 @@ public class Door : MonoBehaviour
 {
     public bool isOpened;
     public bool isLocked;
+
     Animator anim;
 
     private void Start() 

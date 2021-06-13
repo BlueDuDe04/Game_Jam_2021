@@ -41,8 +41,10 @@ public class Cube : MonoBehaviour, IPickup
 
     public void OnDrop()
     {
-        GetComponent<Collider>().isTrigger = false;
         isHeld = false;
+        this.transform.parent = null;
+        
+        GetComponent<Collider>().isTrigger = false;
 
         //GetComponent<Collider>().enabled = true;
         rb.constraints = RigidbodyConstraints.None;

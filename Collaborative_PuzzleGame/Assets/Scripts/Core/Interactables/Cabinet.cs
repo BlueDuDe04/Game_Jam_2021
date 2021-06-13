@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cabinet : MonoBehaviour, IInteractable
+public class Cabinet : Door, IInteractable
 {
     private Animator anim;
-    public bool isOpened;
 
     
 
@@ -17,7 +16,7 @@ public class Cabinet : MonoBehaviour, IInteractable
 
     public void InteractWithObject()
     {
-        if (!isOpened)
+        if (!isOpened && !isLocked)
         {
             isOpened = true;
             anim.SetTrigger("Open");
