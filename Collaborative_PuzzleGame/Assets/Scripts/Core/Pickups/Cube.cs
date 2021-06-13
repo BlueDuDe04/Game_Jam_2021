@@ -5,6 +5,7 @@ using UnityEngine;
 public class Cube : MonoBehaviour, IPickup
 {
     Rigidbody rb;
+    BoxCollider collider;
     bool isHeld;
     public Transform mirroredObject; 
     public Transform MirrorPoint;
@@ -15,6 +16,7 @@ public class Cube : MonoBehaviour, IPickup
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        collider = GetComponent<BoxCollider>();
 
     }
     
@@ -41,10 +43,11 @@ public class Cube : MonoBehaviour, IPickup
 
     public void OnDrop()
     {
+        rb.ResetCenterOfMass();
         isHeld = false;
         this.transform.parent = null;
 
-        GetComponent<Collider>().isTrigger = false;
+        collider.isTrigger = false;
 
         //GetComponent<Collider>().enabled = true;
         rb.constraints = RigidbodyConstraints.None;
@@ -84,8 +87,9 @@ public class Cube : MonoBehaviour, IPickup
         if (collider.tag == "Wall")
         {
             Debug.Log("You hit a wall bitch");
-            GetComponent<Collider>().isTrigger = false;
             OnDrop();
+            
+            
         }
         
     }
