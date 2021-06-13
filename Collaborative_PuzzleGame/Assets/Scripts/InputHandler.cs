@@ -14,6 +14,7 @@ public class InputHandler : MonoBehaviour
     public GameObject hoveredItem;
     public IPickup heldItem;
     public GameObject reticle;
+    
 
     private void Start() {
         
@@ -26,7 +27,7 @@ public class InputHandler : MonoBehaviour
     private void Update() 
     {
         isHoveringInteractable();
-        
+
         if (Input.GetKeyDown("e"))
         {
             if (isHoldingItem)

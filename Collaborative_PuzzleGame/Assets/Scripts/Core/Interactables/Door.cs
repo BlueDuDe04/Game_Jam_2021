@@ -7,9 +7,9 @@ public class Door : MonoBehaviour
     public bool isOpened;
     public bool isLocked;
 
-    Animator anim;
+    public Animator anim;
 
-    private void Start() 
+    public void Start() 
     {
         anim = GetComponent<Animator>();    
     }

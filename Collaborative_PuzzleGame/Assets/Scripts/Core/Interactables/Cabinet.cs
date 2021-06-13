@@ -3,16 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Cabinet : Door, IInteractable
-{
-    private Animator anim;
-
+{  
+    void Start() => base.Start();
     
-
-
-    void Start()
-    {
-        anim = GetComponent<Animator>();
-    }
 
     public void InteractWithObject()
     {
