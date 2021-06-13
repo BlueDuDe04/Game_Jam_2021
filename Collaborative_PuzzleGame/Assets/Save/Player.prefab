@@ -188,9 +188,8 @@ GameObject:
   - component: {fileID: 8808490667603393748}
   - component: {fileID: 8808490667603393739}
   - component: {fileID: 1922518745}
-  - component: {fileID: 1152557843}
   - component: {fileID: 1152557842}
-  - component: {fileID: 1851123442081277995}
+  - component: {fileID: 1152557843}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -246,24 +245,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: -1.34, z: 0}
---- !u!114 &1152557843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8808490667603393738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0521a32227be26e49b3f2bb64e70ed67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camera: {fileID: 8808490667701371631}
-  player: {fileID: 8808490667603393748}
-  heldObjectPlaceHolder: {fileID: 8808490667495088009}
-  isHoldingItem: 0
-  hoveredItem: {fileID: 0}
-  reticle: {fileID: 0}
 --- !u!54 &1152557842
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -280,7 +261,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1851123442081277995
+--- !u!114 &1152557843
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
