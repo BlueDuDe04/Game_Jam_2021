@@ -8,9 +8,15 @@ public class Door : MonoBehaviour
     public bool isLocked;
     Animator anim;
 
+    GameObject onLights;
+    GameObject offLights;
+
     private void Start() 
     {
-        anim = GetComponent<Animator>();    
+        anim = GetComponent<Animator>();
+        onLights = transform.Find("Sifi_Sliding_DoorLights_On").gameObject;
+        offLights = transform.Find("Sifi_Sliding_DoorLights_Off").gameObject;
+
     }
 
     public void OpenDoor()
@@ -19,6 +25,8 @@ public class Door : MonoBehaviour
         {
             anim.SetTrigger("Open");
             isOpened = true;
+            onLights.SetActive(true);
+            offLights.SetActive(false);
         }
         
     }
@@ -29,6 +37,8 @@ public class Door : MonoBehaviour
         {
             anim.SetTrigger("Close");
             isOpened = false;
+            onLights.SetActive(false);
+            offLights.SetActive(true);
         }
 
 
