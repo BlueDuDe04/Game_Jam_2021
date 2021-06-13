@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Cabinet : Door, IInteractable
 {
-    private Animator anim;
+    private Animator animation;
 
     
 
 
     void Start()
     {
-        anim = GetComponent<Animator>();
+        animation = GetComponent<Animator>();
     }
 
     public void InteractWithObject()
@@ -19,14 +19,14 @@ public class Cabinet : Door, IInteractable
         if (!isOpened && !isLocked)
         {
             isOpened = true;
-            anim.SetTrigger("Open");
+            animation.SetTrigger("Open");
             GetComponent<BoxCollider>().enabled = false;
             return;
         }
         
 
         isOpened = false;
-        anim.SetTrigger("Close");
+        animation.SetTrigger("Close");
         
     }
 
