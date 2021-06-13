@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InputHandler : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class InputHandler : MonoBehaviour
     public bool isHoldingItem;
     public GameObject hoveredItem;
     public IPickup heldItem;
+    public GameObject reticle;
 
     private void Start() {
         
@@ -21,8 +23,10 @@ public class InputHandler : MonoBehaviour
             Instance = this; 
     }
 
-    private void Update() {
-
+    private void Update() 
+    {
+        isHoveringInteractable();
+        
         if (Input.GetKeyDown("e"))
         {
             if (isHoldingItem)
@@ -70,8 +74,10 @@ public class InputHandler : MonoBehaviour
             if (hit.transform.tag == "Interactable")
             {
                 hoveredItem = hit.transform.gameObject;
+                reticle.GetComponent<Image>().color = Color.green;
                 return true;
             }
+            reticle.GetComponent<Image>().color = Color.red;
             return false;
         }
         hoveredItem = null;
@@ -87,6 +93,8 @@ public class InputHandler : MonoBehaviour
          
         return false;
     }
+
+
 
 
 }

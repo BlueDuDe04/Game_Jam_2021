@@ -5,6 +5,7 @@ using UnityEngine;
 public class Button : MonoBehaviour, IInteractable
 {
     public List<Door> linkedDoors;
+    public List<Cabinet> linkedCabinets;
     public bool isActivated;
 
     public void InteractWithObject()
@@ -19,6 +20,10 @@ public class Button : MonoBehaviour, IInteractable
             else
                 door.OpenDoor();
         }
+
+
+        foreach (Cabinet cabinet in linkedCabinets)
+            cabinet.isLocked = false;
     }
 }
 
