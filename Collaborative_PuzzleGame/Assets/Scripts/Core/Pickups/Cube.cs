@@ -7,6 +7,7 @@ public class Cube : MonoBehaviour, IPickup
     Rigidbody rb;
     bool isHeld;
     public Transform mirroredObject; 
+    public Transform MirrorPoint;
     public float offsetZ;
     public float offsetX;
 
@@ -17,15 +18,23 @@ public class Cube : MonoBehaviour, IPickup
 
     }
     
-    private void FixedUpdate() 
+    private void LateUpdate() 
     {
         
         if (isHeld 
         && mirroredObject != null)
         {
             
-            mirroredObject.transform.position = new Vector3((mirroredObject.transform.position.x + offsetX), mirroredObject.transform.position.y, mirroredObject.transform.position.z + offsetZ);
-          
+            //mirroredObject.position = Vector3.LerpUnclamped(this.transform.parent.position, MirrorPoint.position, 3f);
+            
+            float posX = transform.parent.position.x;
+            float posY = transform.parent.position.y;
+            float posZ = Mathf.LerpUnclamped(transform.parent.position.z, MirrorPoint.position.z, offsetZ);
+
+            mirroredObject.transform.position = new Vector3(posX, posY, posZ);
+            //Transform playerPos = this.transform.parent.parent.parent.parent.transform;
+            //mirroredObject.transform.position = playerPos.position;
+
         }
     }
 
@@ -59,7 +68,7 @@ public class Cube : MonoBehaviour, IPickup
 
         if (mirroredObject != null)
         {
-            mirroredObject.transform.parent = this.transform.parent;
+            //mirroredObject.transform.parent = this.transform.parent;
         }
         
     }
