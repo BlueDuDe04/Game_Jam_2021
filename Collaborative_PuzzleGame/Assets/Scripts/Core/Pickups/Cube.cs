@@ -21,8 +21,8 @@ public class Cube : MonoBehaviour, IPickup
     private void LateUpdate() 
     {
         
-        if (isHeld 
-        && mirroredObject != null)
+        if (mirroredObject != null
+        && isHeld)
         {
             
             //mirroredObject.position = Vector3.LerpUnclamped(this.transform.parent.position, MirrorPoint.position, 3f);
@@ -47,6 +47,10 @@ public class Cube : MonoBehaviour, IPickup
         //GetComponent<Collider>().enabled = true;
         rb.constraints = RigidbodyConstraints.None;
         this.transform.parent = null;
+
+        if (mirroredObject != null)
+            mirroredObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+
         
     }
 
@@ -66,10 +70,11 @@ public class Cube : MonoBehaviour, IPickup
         rb.constraints = RigidbodyConstraints.FreezeAll;
         rb.IsSleeping();
 
+
         if (mirroredObject != null)
-        {
-            //mirroredObject.transform.parent = this.transform.parent;
-        }
+            mirroredObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
+
         
     }
 

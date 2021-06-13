@@ -2459,7 +2459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1540327632197557309, guid: 67216cd733399a24cb41b11bd146829f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.31
+      value: 24.02
       objectReference: {fileID: 0}
     - target: {fileID: 1540327632197557309, guid: 67216cd733399a24cb41b11bd146829f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2467,7 +2467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1540327632197557309, guid: 67216cd733399a24cb41b11bd146829f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 37.65
+      value: 35.08
       objectReference: {fileID: 0}
     - target: {fileID: 1540327632197557309, guid: 67216cd733399a24cb41b11bd146829f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2503,7 +2503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1540327632197557310, guid: 67216cd733399a24cb41b11bd146829f, type: 3}
       propertyPath: offsetZ
-      value: 0
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 1540327632197557310, guid: 67216cd733399a24cb41b11bd146829f, type: 3}
       propertyPath: MirrorPoint
@@ -3177,7 +3177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1540327632197557309, guid: 67216cd733399a24cb41b11bd146829f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.63
+      value: 23.95
       objectReference: {fileID: 0}
     - target: {fileID: 1540327632197557309, guid: 67216cd733399a24cb41b11bd146829f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3185,7 +3185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1540327632197557309, guid: 67216cd733399a24cb41b11bd146829f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 43.94
+      value: 46.47
       objectReference: {fileID: 0}
     - target: {fileID: 1540327632197557309, guid: 67216cd733399a24cb41b11bd146829f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3215,9 +3215,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1540327632197557310, guid: 67216cd733399a24cb41b11bd146829f, type: 3}
+      propertyPath: offsetZ
+      value: 6.46
+      objectReference: {fileID: 0}
     - target: {fileID: 1540327632197557311, guid: 67216cd733399a24cb41b11bd146829f, type: 3}
       propertyPath: m_Constraints
-      value: 126
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1540327632197557311, guid: 67216cd733399a24cb41b11bd146829f, type: 3}
       propertyPath: m_Interpolate
