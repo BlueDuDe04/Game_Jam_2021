@@ -5,30 +5,65 @@ using UnityEngine;
 public class Battery : MonoBehaviour, IPickup
 {
     Rigidbody rb;
+    BoxCollider collider;
     bool isHeld;
-    public int batteryID;
+    public Transform mirroredObject; 
+    public Transform MirrorPoint;
+    public float offsetZ;
+    public float offsetX;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        collider = GetComponent<BoxCollider>();
 
+    }
+    
+    private void LateUpdate() 
+    {
+        
+        if (mirroredObject != null
+        && isHeld)
+        {
+            
+            //mirroredObject.position = Vector3.LerpUnclamped(this.transform.parent.position, MirrorPoint.position, 3f);
+            
+            float posX = Mathf.LerpUnclamped(transform.parent.position.x, MirrorPoint.position.z, offsetX);;
+            float posY = transform.parent.position.y;
+            float posZ = Mathf.LerpUnclamped(transform.parent.position.z, MirrorPoint.position.z, offsetZ);
+
+            mirroredObject.transform.position = new Vector3(posX, posY, posZ);
+            //Transform playerPos = this.transform.parent.parent.parent.parent.transform;
+            //mirroredObject.transform.position = playerPos.position;
+
+        }
     }
 
 
     public void OnDrop()
     {
-        GetComponent<Collider>().isTrigger = false;
+        rb.ResetCenterOfMass();
+        rb.velocity = Vector3.zero;
+        rb.AddForce(Vector3.up * 700);
+
         isHeld = false;
+        this.transform.parent = null;
+
+        collider.isTrigger = false;
 
         //GetComponent<Collider>().enabled = true;
         rb.constraints = RigidbodyConstraints.None;
         this.transform.parent = null;
+
+        if (mirroredObject != null)
+            mirroredObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+
         
     }
 
     public void OnPickup()
     {
-        Debug.Log("On Pickup");
         isHeld = true;
         Debug.Log("Pick up this " + this.gameObject.name);
         GetComponent<Collider>().isTrigger = true;
@@ -42,6 +77,12 @@ public class Battery : MonoBehaviour, IPickup
 
         rb.constraints = RigidbodyConstraints.FreezeAll;
         rb.IsSleeping();
+
+
+        if (mirroredObject != null)
+            mirroredObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
+
         
     }
 
@@ -49,11 +90,11 @@ public class Battery : MonoBehaviour, IPickup
         if (collider.tag == "Wall")
         {
             Debug.Log("You hit a wall bitch");
-            GetComponent<Collider>().isTrigger = false;
             OnDrop();
+            
+            
         }
         
     }
-
 
 }

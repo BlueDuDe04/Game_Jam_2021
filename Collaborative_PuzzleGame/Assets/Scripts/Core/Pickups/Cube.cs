@@ -44,6 +44,9 @@ public class Cube : MonoBehaviour, IPickup
     public void OnDrop()
     {
         rb.ResetCenterOfMass();
+        rb.velocity = Vector3.zero;
+        rb.AddForce(Vector3.up * 700);
+
         isHeld = false;
         this.transform.parent = null;
 
