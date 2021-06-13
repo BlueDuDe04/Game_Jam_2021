@@ -5,6 +5,7 @@ using UnityEngine;
 public class BatterySlot : MonoBehaviour
 {
     public GameObject batteryPrefab;
+    public GameObject batteryFull;
     public List<Door> linkedDoors;
     bool powered;
 
@@ -16,9 +17,10 @@ public class BatterySlot : MonoBehaviour
         && collider.TryGetComponent<Battery>(out Battery collidedBattery))
         {
             collidedBattery.OnDrop();
-            GameObject newBattery = Instantiate(batteryPrefab, parent: this.transform) as GameObject;
-            newBattery.transform.localPosition = new Vector3(0f, -0.25f, 0f);
             Destroy(collidedBattery.gameObject);
+            Destroy(transform.Find("Cube_007"));
+
+            GameObject newSlot = Instantiate(batteryFull, transform.position, transform.rotation);
             powered = true;
             OpenDoors();
         }
