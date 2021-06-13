@@ -27,7 +27,7 @@ public class Cube : MonoBehaviour, IPickup
             
             //mirroredObject.position = Vector3.LerpUnclamped(this.transform.parent.position, MirrorPoint.position, 3f);
             
-            float posX = transform.parent.position.x;
+            float posX = Mathf.LerpUnclamped(transform.parent.position.x, MirrorPoint.position.z, offsetX);;
             float posY = transform.parent.position.y;
             float posZ = Mathf.LerpUnclamped(transform.parent.position.z, MirrorPoint.position.z, offsetZ);
 
@@ -43,7 +43,7 @@ public class Cube : MonoBehaviour, IPickup
     {
         isHeld = false;
         this.transform.parent = null;
-        
+
         GetComponent<Collider>().isTrigger = false;
 
         //GetComponent<Collider>().enabled = true;
