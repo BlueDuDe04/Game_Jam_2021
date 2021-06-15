@@ -47,7 +47,7 @@ public class InputHandler : MonoBehaviour
     {
         isHoveringInteractable();
 
-        if (Input.GetKeyDown("e"))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (isHoldingItem)
             {

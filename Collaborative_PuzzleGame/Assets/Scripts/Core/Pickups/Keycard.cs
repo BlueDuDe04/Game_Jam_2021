@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Keycard : MonoBehaviour, IPickup
 {
-    public int scannerID;
+    public int scannerID = 0;
     Rigidbody rb;
-    bool isHeld;
+    bool isHeld = false;
 
 
     void Start()
@@ -50,24 +50,41 @@ public class Keycard : MonoBehaviour, IPickup
 
         else if (collider.tag == "Scanner")
         {
-            Scanner scanner = collider.GetComponent<Scanner>();
-            if(scannerID == scanner.scannerCheckID)
+            Scanner scannerStatic = collider.GetComponent<Scanner>();
+            if (scannerStatic != null && scannerID == scannerStatic.scannerCheckID)
+            {
+                scannerStatic.OpenDoors();
+            }
+        }
+        else if (collider.transform.GetChild(0).tag == "ScannerUpper")
+        {
+            ScannerUpper scanner = collider.transform.GetComponent<ScannerUpper>();
+            if (scannerID == scanner.scannerCheckID)
             {
                 scanner.OpenDoors();
             }
         }
     }
-
+    
     private void OnTriggerExit(Collider collider) 
     {
         if (collider.tag == "Scanner")
         {
-            Scanner scanner = collider.GetComponent<Scanner>();
-            if(scannerID == scanner.scannerCheckID)
+            Scanner scannerStatic = collider.GetComponent<Scanner>();
+            if (scannerID == scannerStatic.scannerCheckID)
+            {
+                scannerStatic.CloseDoors();
+            }
+        }
+        else if(collider.transform.GetChild(0).tag == "ScannerUpper")
+        {
+            ScannerUpper scanner = collider.transform.GetComponent<ScannerUpper>();
+            if (scannerID == scanner.scannerCheckID)
             {
                 scanner.CloseDoors();
             }
         }
+
     }
 }
 

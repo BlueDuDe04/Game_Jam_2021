@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Scanner : MonoBehaviour
 {
-    public int scannerCheckID;
+    public int scannerCheckID = 0;
 
     public List<Door> linkedDoors;
-
 
     public void OpenDoors()
     {
@@ -22,10 +21,6 @@ public class Scanner : MonoBehaviour
         Debug.Log("Closing scanner doors " + gameObject.name);
 
         foreach (Door door in linkedDoors)
-            door.CloseDoor();       
+            door.CloseDoor();
     }
-
-
-
-    
 }
